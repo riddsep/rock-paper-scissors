@@ -76,14 +76,14 @@ function playRound() {
   } else if (result === "lose") {
     score.computerScore++;
   }
-  alert(
-    `Your score: ${score.humanScore} Computer score: ${score.computerScore}`
-  );
 }
 
 function playGame() {
   for (let i = 0; i < 5; i++) {
     playRound();
   }
+  alert(
+    `Your score: ${score.humanScore} Computer score: ${score.computerScore}`
+  );
 }
 playGame();

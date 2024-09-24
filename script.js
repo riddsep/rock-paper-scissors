@@ -23,7 +23,14 @@ function getHumanChoice() {
 function playRound() {
   const computerMoves = getComputerChoice();
   const humanMoves = getHumanChoice().toLowerCase();
-
+  if (
+    humanMoves !== "rock" &&
+    humanMoves !== "paper" &&
+    humanMoves !== "scissors"
+  ) {
+    alert("Please choose rock, paper or scissors");
+    playRound();
+  }
   let result = "";
 
   if (computerMoves === "rock") {
@@ -63,5 +70,20 @@ function playRound() {
       alert(`You lose!. ${computerMoves} defeat ${humanMoves}`);
       break;
   }
+
+  if (result === "win") {
+    score.humanScore++;
+  } else if (result === "lose") {
+    score.computerScore++;
+  }
+  alert(
+    `Your score: ${score.humanScore} Computer score: ${score.computerScore}`
+  );
 }
-playRound();
+
+function playGame() {
+  for (let i = 0; i < 5; i++) {
+    playRound();
+  }
+}
+playGame();
